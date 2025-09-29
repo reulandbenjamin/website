@@ -1,0 +1,3 @@
+# Dossier de stockage des backups de formulaires
+# Ce fichier .gitkeep maintient le dossier dans Git
+# Les fichiers JSON seront générés dynamiquement par l'API

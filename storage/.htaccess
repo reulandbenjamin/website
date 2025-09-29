@@ -1,0 +1,8 @@
+# Protection du dossier storage
+Order Allow,Deny
+Deny from all
+
+# Empêcher l'indexation
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
+</IfModule>
