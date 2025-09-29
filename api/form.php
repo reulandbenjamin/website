@@ -45,15 +45,12 @@ class Config {
     }
 }
 
-const RECAPTCHA_SECRET = '';
-const MAIL_FROM = 'no-reply@benjamin-reuland.be';
-const MAIL_TO = 'contact@benjamin-reuland.be';
 const STORAGE_PATH = __DIR__ . '/../storage/forms/';
 const RATE_LIMIT_FILE = __DIR__ . '/../storage/.rate_limits';
 
-$recaptcha_secret = Config::get('RECAPTCHA_SECRET_KEY', RECAPTCHA_SECRET);
-$mail_to = Config::get('MAIL_TO', MAIL_TO);
-$mail_from = Config::get('MAIL_FROM', MAIL_FROM);
+$recaptcha_secret = Config::get('RECAPTCHA_SECRET_KEY');
+$mail_to = Config::get('MAIL_TO', 'contact@benjamin-reuland.be');
+$mail_from = Config::get('MAIL_FROM', 'no-reply@benjamin-reuland.be');
 
 if (empty($recaptcha_secret)) {
     error_log('RECAPTCHA_SECRET_KEY non configuré');
@@ -64,21 +61,11 @@ if (empty($recaptcha_secret)) {
 
 class RateLimiter {
     private string $file;
-    private array $limits = [
-        'per_minute' => 2,
-        'per_10_minutes' => 5
-    ];
 
     public function __construct(string $file) {
         $this->file = $file;
-        $this->ensureDirectoryExists();
-    }
-
-    private function ensureDirectoryExists(): void {
-        $dir = dirname($this->file);
-        if (!is_dir($dir)) {
-            mkdir($dir, 0750, true);
-        }
+        $dir = dirname($file);
+        if (!is_dir($dir)) mkdir($dir, 0750, true);
     }
 
     public function isAllowed(string $ip): bool {
@@ -89,9 +76,7 @@ class RateLimiter {
             return max($timestamps) > ($now - 600);
         });
 
-        if (!isset($data[$ip])) {
-            $data[$ip] = [];
-        }
+        if (!isset($data[$ip])) $data[$ip] = [];
 
         $last_minute = array_filter($data[$ip], function($timestamp) use ($now) {
             return $timestamp > ($now - 60);
@@ -101,25 +86,19 @@ class RateLimiter {
             return $timestamp > ($now - 600);
         });
 
-        if (count($last_minute) >= $this->limits['per_minute'] || 
-            count($last_10_minutes) >= $this->limits['per_10_minutes']) {
+        if (count($last_minute) >= 2 || count($last_10_minutes) >= 5) {
             return false;
         }
 
         $data[$ip][] = $now;
         $this->saveData($data);
-
         return true;
     }
 
     private function loadData(): array {
-        if (!file_exists($this->file)) {
-            return [];
-        }
-
+        if (!file_exists($this->file)) return [];
         $content = file_get_contents($this->file);
         $data = json_decode($content, true);
-
         return is_array($data) ? $data : [];
     }
 
@@ -133,10 +112,6 @@ class FormBackup {
 
     public function __construct(string $storage_path) {
         $this->storage_path = rtrim($storage_path, '/') . '/';
-        $this->ensureDirectoryExists();
-    }
-
-    private function ensureDirectoryExists(): void {
         if (!is_dir($this->storage_path)) {
             mkdir($this->storage_path, 0750, true);
         }
@@ -144,11 +119,7 @@ class FormBackup {
         $htaccess = $this->storage_path . '.htaccess';
         if (!file_exists($htaccess)) {
             file_put_contents($htaccess, 
-                "Order Deny,Allow\n" .
-                "Deny from all\n" .
-                "<Files "*.json">\n" .
-                "    Header set X-Robots-Tag "noindex, nofollow"\n" .
-                "</Files>\n"
+                "Order Deny,Allow\nDeny from all\n<Files \"*.json\">\n    Header set X-Robots-Tag \"noindex, nofollow\"\n</Files>\n"
             );
         }
     }
@@ -156,10 +127,7 @@ class FormBackup {
     public function save(array $data): string {
         $date = date('Y-m');
         $month_dir = $this->storage_path . $date . '/';
-
-        if (!is_dir($month_dir)) {
-            mkdir($month_dir, 0750, true);
-        }
+        if (!is_dir($month_dir)) mkdir($month_dir, 0750, true);
 
         $id = uniqid('form_', true);
         $filename = $month_dir . $id . '.json';
@@ -169,20 +137,16 @@ class FormBackup {
             'timestamp' => time(),
             'date' => date('c'),
             'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown',
-            'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? 'unknown',
             'data' => $data
         ];
 
         file_put_contents($filename, json_encode($backup_data, JSON_PRETTY_PRINT), LOCK_EX);
-
         $this->purgeOldFiles();
-
         return $id;
     }
 
     private function purgeOldFiles(): void {
         $cutoff = time() - (90 * 24 * 60 * 60);
-
         $iterator = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator($this->storage_path)
         );
@@ -200,9 +164,7 @@ class FormBackup {
 function validateInput(): array {
     $input = json_decode(file_get_contents('php://input'), true);
 
-    if (!$input) {
-        throw new InvalidArgumentException('Données JSON invalides');
-    }
+    if (!$input) throw new InvalidArgumentException('Données JSON invalides');
 
     $required_fields = ['name', 'email', 'message', 'token'];
     foreach ($required_fields as $field) {
@@ -216,9 +178,7 @@ function validateInput(): array {
     }
 
     $email = filter_var(trim($input['email']), FILTER_VALIDATE_EMAIL);
-    if (!$email) {
-        throw new InvalidArgumentException('Adresse email invalide');
-    }
+    if (!$email) throw new InvalidArgumentException('Adresse email invalide');
 
     $message = trim($input['message']);
     if (strlen($message) < 100) {
@@ -253,22 +213,13 @@ function verifyRecaptcha(string $token, string $secret): bool {
     ]);
 
     $response = @file_get_contents($url, false, $context);
-
-    if (!$response) {
-        error_log('Erreur reCAPTCHA: Impossible de contacter Google');
-        return false;
-    }
+    if (!$response) return false;
 
     $result = json_decode($response, true);
-
-    if (!$result || !$result['success']) {
-        error_log('Erreur reCAPTCHA: ' . json_encode($result));
-        return false;
-    }
+    if (!$result || !$result['success']) return false;
 
     $score_threshold = 0.5;
     if (isset($result['score']) && $result['score'] < $score_threshold) {
-        error_log("reCAPTCHA score trop bas: {$result['score']}");
         return false;
     }
 
@@ -292,8 +243,7 @@ function sendEmail(array $data, string $to, string $from): bool {
         'From' => $from,
         'Reply-To' => $data['email'],
         'Content-Type' => 'text/plain; charset=UTF-8',
-        'X-Mailer' => 'PHP/' . phpversion(),
-        'Message-ID' => '<' . uniqid() . '@benjamin-reuland.be>'
+        'X-Mailer' => 'PHP/' . phpversion()
     ];
 
     $headers_string = '';
@@ -326,10 +276,9 @@ function sendAcknowledgment(array $data): bool {
     $message = $messages[$lang] ?? $messages['fr'];
 
     $headers = [
-        'From' => Config::get('MAIL_FROM', $mail_from),
-        'Reply-To' => Config::get('MAIL_TO', $mail_to),
-        'Content-Type' => 'text/plain; charset=UTF-8',
-        'X-Auto-Response-Suppress' => 'All'
+        'From' => Config::get('MAIL_FROM', 'no-reply@benjamin-reuland.be'),
+        'Reply-To' => Config::get('MAIL_TO', 'contact@benjamin-reuland.be'),
+        'Content-Type' => 'text/plain; charset=UTF-8'
     ];
 
     $headers_string = '';
@@ -368,13 +317,8 @@ try {
     $sent_owner = sendEmail($data, $mail_to, $mail_from);
     $sent_ack = sendAcknowledgment($data);
 
-    if (!$sent_owner) {
-        error_log('Erreur envoi email propriétaire');
-    }
-
-    if (!$sent_ack) {
-        error_log('Erreur envoi accusé de réception');
-    }
+    if (!$sent_owner) error_log('Erreur envoi email propriétaire');
+    if (!$sent_ack) error_log('Erreur envoi accusé de réception');
 
     http_response_code(200);
     echo json_encode([
