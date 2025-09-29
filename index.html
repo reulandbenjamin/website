@@ -3,17 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benjamin Reuland - Ingénierie & Web</title>
+    <title>Benjamin Reuland - Redirection</title>
     <meta http-equiv="refresh" content="0; url=/fr/">
     <link rel="canonical" href="https://benjamin-reuland.be/fr/">
-    <meta name="robots" content="noindex">
+    <style>
+        body { 
+            font-family: system-ui, sans-serif; 
+            text-align: center; 
+            padding: 2rem; 
+            background: #F0EFE9; 
+            color: #2E3B55; 
+        }
+        .redirect-message {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
-    <script>
-        window.location.href = '/fr/';
-    </script>
+    <div class="redirect-message">
+        <h1>Benjamin Reuland</h1>
+        <p>Redirection en cours vers la version française...</p>
+        <p><a href="/fr/">Cliquez ici si la redirection ne fonctionne pas</a></p>
+
+        <div style="margin-top: 2rem;">
+            <p>Choisir une langue / Choose language:</p>
+            <a href="/fr/" style="margin: 0 1rem;">🇫🇷 Français</a>
+            <a href="/en/" style="margin: 0 1rem;">🇬🇧 English</a>
+            <a href="/nl/" style="margin: 0 1rem;">🇳🇱 Nederlands</a>
+            <a href="/de/" style="margin: 0 1rem;">🇩🇪 Deutsch</a>
+            <a href="/sv/" style="margin: 0 1rem;">🇸🇪 Svenska</a>
+        </div>
+    </div>
+
     <noscript>
-        <p>Redirection automatique vers <a href="/fr/">la version française</a></p>
+        <meta http-equiv="refresh" content="0; url=/fr/">
     </noscript>
 </body>
 </html>
