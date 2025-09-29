@@ -21,6 +21,7 @@ class BenjaminReulandSite {
     this.setupCTATracking();
     this.setupConsentBanner();
     this.setupHeroCanvas();
+    this.setupSkipLinks();
 
     // Events GA4 si consentement donné
     if (this.consentGiven && window.gtag) {
@@ -28,6 +29,7 @@ class BenjaminReulandSite {
     }
   }
 
+  // === DÉTECTION LANGUE === //
   detectLanguage() {
     const path = window.location.pathname;
     if (path.startsWith('/fr/')) return 'fr';
@@ -35,9 +37,10 @@ class BenjaminReulandSite {
     if (path.startsWith('/nl/')) return 'nl';
     if (path.startsWith('/de/')) return 'de';
     if (path.startsWith('/sv/')) return 'sv';
-    return 'fr';
+    return 'fr'; // default
   }
 
+  // === NAVIGATION === //
   setupNavigation() {
     const header = document.querySelector('.header');
     if (!header) return;
@@ -61,8 +64,20 @@ class BenjaminReulandSite {
         scrollTimeout = null;
       }, 10);
     }, { passive: true });
+
+    // Active navigation link
+    const navLinks = document.querySelectorAll('.nav-link');
+    const currentPath = window.location.pathname;
+
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPath || 
+          (currentPath.includes(link.getAttribute('href')) && link.getAttribute('href') !== '/')) {
+        link.classList.add('active');
+      }
+    });
   }
 
+  // === CHANGEMENT DE LANGUE === //
   setupLanguageSwitcher() {
     const langButtons = document.querySelectorAll('[data-lang]');
 
@@ -81,6 +96,7 @@ class BenjaminReulandSite {
   switchLanguage(newLang) {
     if (newLang === this.currentLang) return;
 
+    // Event GA4
     if (this.consentGiven && window.gtag) {
       gtag('event', 'lang_switch', {
         event_category: 'i18n',
@@ -89,20 +105,40 @@ class BenjaminReulandSite {
       });
     }
 
+    // Mapping des pages entre langues
+    const pathMappings = {
+      'fr': {
+        'a-propos': { en: 'about', nl: 'over', de: 'ueber', sv: 'om' },
+        'etudes': { en: 'studies', nl: 'studies', de: 'studium', sv: 'studier' },
+        'projets': { en: 'projects', nl: 'projecten', de: 'projekte', sv: 'projekt' },
+        'mes-engagements': { en: 'commitments', nl: 'engagementen', de: 'engagements', sv: 'engagemang' },
+        'services': { en: 'services', nl: 'diensten', de: 'dienstleistungen', sv: 'tjanster' },
+        'contact': { en: 'contact', nl: 'contact', de: 'kontakt', sv: 'kontakt' }
+      }
+    };
+
     let currentPath = window.location.pathname.replace(`/${this.currentLang}/`, '').replace('/', '');
-    let newPath = `/${newLang}/`;
+    let newPath = '/';
 
     if (currentPath) {
-      newPath = `/${newLang}/${currentPath}`;
+      if (pathMappings.fr[currentPath] && pathMappings.fr[currentPath][newLang]) {
+        newPath = `/${newLang}/${pathMappings.fr[currentPath][newLang]}`;
+      } else {
+        newPath = `/${newLang}/`;
+      }
+    } else {
+      newPath = `/${newLang}/`;
     }
 
     window.location.href = newPath;
   }
 
+  // === RECHERCHE LUNR === //
   setupSearch() {
     const searchBtn = document.querySelector('[data-search-btn]');
     const searchPanel = document.querySelector('[data-search-panel]');
     const searchInput = document.querySelector('[data-search-input]');
+    const searchClose = document.querySelector('[data-search-close]');
 
     if (!searchBtn || !searchPanel) return;
 
@@ -113,8 +149,18 @@ class BenjaminReulandSite {
       this.openSearch();
     });
 
+    if (searchClose) {
+      searchClose.addEventListener('click', () => this.closeSearch());
+    }
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && searchPanel.classList.contains('active')) {
+        this.closeSearch();
+      }
+    });
+
+    searchPanel.addEventListener('click', (e) => {
+      if (e.target === searchPanel) {
         this.closeSearch();
       }
     });
@@ -206,13 +252,14 @@ class BenjaminReulandSite {
 
     try {
       const results = this.searchIndex.search(query);
+      const maxResults = 8;
 
       if (results.length === 0) {
         resultsContainer.innerHTML = '<p class="search-no-results">Aucun résultat trouvé</p>';
         return;
       }
 
-      const resultsHTML = results.slice(0, 8).map(result => {
+      const resultsHTML = results.slice(0, maxResults).map(result => {
         const doc = this.searchDocuments.find(d => d.url === result.ref);
         if (!doc) return '';
 
@@ -232,6 +279,7 @@ class BenjaminReulandSite {
     }
   }
 
+  // === FILTRES PROJETS === //
   setupProjectFilters() {
     const filterButtons = document.querySelectorAll('[data-filter]');
     const projectCards = document.querySelectorAll('[data-project]');
@@ -250,6 +298,10 @@ class BenjaminReulandSite {
           const shouldShow = filter === 'tous' || categories.includes(filter);
 
           card.style.display = shouldShow ? 'block' : 'none';
+
+          if (shouldShow) {
+            card.style.animation = 'fadeIn 0.3s ease-out';
+          }
         });
 
         if (this.consentGiven && window.gtag) {
@@ -262,6 +314,7 @@ class BenjaminReulandSite {
     });
   }
 
+  // === TRACKING CTA === //
   setupCTATracking() {
     const ctaButtons = document.querySelectorAll('[data-cta]');
 
@@ -276,8 +329,35 @@ class BenjaminReulandSite {
         }
       });
     });
+
+    const cvLinks = document.querySelectorAll('a[href*=".pdf"]');
+    cvLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (this.consentGiven && window.gtag) {
+          gtag('event', 'cv_download', {
+            event_category: 'conversion',
+            file_name: link.href.split('/').pop(),
+            language: this.currentLang
+          });
+        }
+      });
+    });
+
+    const projectLinks = document.querySelectorAll('a[href*="/projets/"], a[href*="/projects/"]');
+    projectLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (this.consentGiven && window.gtag) {
+          gtag('event', 'project_open', {
+            event_category: 'engagement',
+            project_url: link.href,
+            source_page: window.location.pathname
+          });
+        }
+      });
+    });
   }
 
+  // === CONSENTEMENT === //
   setupConsentBanner() {
     const banner = document.querySelector('[data-consent-banner]');
     const acceptBtn = document.querySelector('[data-consent-accept]');
@@ -344,6 +424,7 @@ class BenjaminReulandSite {
     }
   }
 
+  // === HERO CANVAS === //
   setupHeroCanvas() {
     const canvas = document.querySelector('[data-hero-canvas]');
     if (!canvas) return;
@@ -426,6 +507,22 @@ class BenjaminReulandSite {
     }
   }
 
+  // === ACCESSIBILITÉ === //
+  setupSkipLinks() {
+    const skipLinks = document.querySelectorAll('.skip-link');
+
+    skipLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.focus();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
   trackPageView() {
     if (window.gtag) {
       gtag('event', 'page_view', {
@@ -437,6 +534,112 @@ class BenjaminReulandSite {
   }
 }
 
+// CSS pour les animations
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .search-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: rgba(46, 59, 85, 0.8);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .search-panel.active {
+    display: flex;
+  }
+
+  .search-box {
+    width: 100%;
+    max-width: 600px;
+    background: var(--bg-0);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .search-input {
+    width: 100%;
+    padding: var(--space-md);
+    font-size: var(--text-lg);
+    border: 2px solid var(--bg-2);
+    border-radius: var(--radius);
+    margin-bottom: var(--space-md);
+  }
+
+  .search-results {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .search-result {
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--bg-2);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .search-result:hover {
+    background-color: var(--bg-1);
+  }
+
+  .search-result-title {
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+
+  .search-result-excerpt {
+    font-size: var(--text-sm);
+    color: var(--text-2);
+  }
+
+  .consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--bg-0);
+    border-top: 1px solid var(--bg-2);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(100%);
+    transition: transform 300ms ease-out;
+  }
+
+  .consent-banner.show {
+    transform: translateY(0);
+  }
+
+  .consent-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .consent-actions {
+    display: flex;
+    gap: var(--space-sm);
+  }
+`;
+document.head.appendChild(style);
+
+// Initialisation au chargement
 document.addEventListener('DOMContentLoaded', () => {
   window.brSite = new BenjaminReulandSite();
 });
