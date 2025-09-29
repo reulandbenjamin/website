@@ -1,0 +1,105 @@
+# ==============================================
+# ROBOTS.TXT - benjamin-reuland.be
+# ==============================================
+# Configuration pour les robots d'indexation
+# Dernière mise à jour : Septembre 2025
+
+# Règles générales pour tous les robots
+User-agent: *
+
+# Pages autorisées pour l'indexation
+Allow: /fr/
+Allow: /en/
+Allow: /nl/
+Allow: /de/
+Allow: /sv/
+Allow: /assets/
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /og-default.svg
+
+# Interdire l'accès aux dossiers sensibles
+Disallow: /storage/
+Disallow: /api/
+Disallow: /search/
+Disallow: /.env*
+Disallow: /.htaccess
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.gitignore
+
+# Interdire l'accès aux fichiers de développement
+Disallow: /*.log
+Disallow: /*.bak
+Disallow: /*.backup
+Disallow: /*.old
+Disallow: /*.tmp
+
+# Pages spécifiques à ne pas indexer
+Disallow: /*/404.html
+Disallow: /test/
+Disallow: /dev/
+
+# Règles spécifiques pour Google
+User-agent: Googlebot
+Allow: /fr/
+Allow: /en/
+Allow: /nl/
+Allow: /de/
+Allow: /sv/
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/img/
+Allow: /assets/fonts/
+
+# Règles pour Bing
+User-agent: Bingbot
+Allow: /fr/
+Allow: /en/
+Allow: /nl/
+Allow: /de/
+Allow: /sv/
+Allow: /assets/
+
+# Bloquer les robots de scraping agressifs
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# ==============================================
+# SITEMAPS
+# ==============================================
+# Plan du site principal (multilingue)
+Sitemap: https://benjamin-reuland.be/sitemap.xml
+
+# Plans de site spécifiques par langue (si nécessaire)
+# Sitemap: https://benjamin-reuland.be/sitemap-fr.xml
+# Sitemap: https://benjamin-reuland.be/sitemap-en.xml
+# Sitemap: https://benjamin-reuland.be/sitemap-nl.xml
+# Sitemap: https://benjamin-reuland.be/sitemap-de.xml
+# Sitemap: https://benjamin-reuland.be/sitemap-sv.xml
+
+# ==============================================
+# CRAWL-DELAY (pour limiter la charge serveur)
+# ==============================================
+# Délai en secondes entre les requêtes (optionnel)
+# Crawl-delay: 1
+
+# ==============================================
+# COMMENTAIRES
+# ==============================================
+# Ce fichier robots.txt suit les standards RFC 9309
+# - Autorise l'indexation du contenu principal multilingue
+# - Protège les fichiers sensibles et de configuration
+# - Bloque les robots de scraping non désirés
+# - Référence le sitemap XML pour une indexation optimale
