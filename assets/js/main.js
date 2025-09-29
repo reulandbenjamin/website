@@ -20,6 +20,8 @@ class BenjaminReulandSite {
     this.setupProjectFilters();
     this.setupCTATracking();
     this.setupConsentBanner();
+    this.setupForms();
+    this.setupFAQ();
     this.setupHeroCanvas();
     this.setupSkipLinks();
 
@@ -113,7 +115,8 @@ class BenjaminReulandSite {
         'projets': { en: 'projects', nl: 'projecten', de: 'projekte', sv: 'projekt' },
         'mes-engagements': { en: 'commitments', nl: 'engagementen', de: 'engagements', sv: 'engagemang' },
         'services': { en: 'services', nl: 'diensten', de: 'dienstleistungen', sv: 'tjanster' },
-        'contact': { en: 'contact', nl: 'contact', de: 'kontakt', sv: 'kontakt' }
+        'contact': { en: 'contact', nl: 'contact', de: 'kontakt', sv: 'kontakt' },
+        'cv': { en: 'cv', nl: 'cv', de: 'cv', sv: 'cv' }
       }
     };
 
@@ -245,7 +248,7 @@ class BenjaminReulandSite {
     if (this.consentGiven && window.gtag) {
       gtag('event', 'search_query', {
         event_category: 'search',
-        search_term: query,
+        search_term: query.substring(0, 50),
         language: this.currentLang
       });
     }
@@ -255,7 +258,14 @@ class BenjaminReulandSite {
       const maxResults = 8;
 
       if (results.length === 0) {
-        resultsContainer.innerHTML = '<p class="search-no-results">Aucun résultat trouvé</p>';
+        const messages = {
+          fr: 'Aucun résultat trouvé',
+          en: 'No results found',
+          nl: 'Geen resultaten gevonden',
+          de: 'Keine Ergebnisse gefunden',
+          sv: 'Inga resultat hittades'
+        };
+        resultsContainer.innerHTML = `<p class="search-no-results">${messages[this.currentLang] || messages.fr}</p>`;
         return;
       }
 
@@ -295,12 +305,13 @@ class BenjaminReulandSite {
 
         projectCards.forEach(card => {
           const categories = card.dataset.project.split(' ');
-          const shouldShow = filter === 'tous' || categories.includes(filter);
-
-          card.style.display = shouldShow ? 'block' : 'none';
+          const shouldShow = filter === 'tous' || filter === 'all' || categories.includes(filter);
 
           if (shouldShow) {
+            card.style.display = 'block';
             card.style.animation = 'fadeIn 0.3s ease-out';
+          } else {
+            card.style.display = 'none';
           }
         });
 
@@ -330,6 +341,7 @@ class BenjaminReulandSite {
       });
     });
 
+    // CV Download tracking
     const cvLinks = document.querySelectorAll('a[href*=".pdf"]');
     cvLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -343,7 +355,8 @@ class BenjaminReulandSite {
       });
     });
 
-    const projectLinks = document.querySelectorAll('a[href*="/projets/"], a[href*="/projects/"]');
+    // Project view tracking
+    const projectLinks = document.querySelectorAll('a[href*="/projets/"], a[href*="/projects/"], a[href*="/projecten/"], a[href*="/projekte/"], a[href*="/projekt/"]');
     projectLinks.forEach(link => {
       link.addEventListener('click', () => {
         if (this.consentGiven && window.gtag) {
@@ -424,6 +437,169 @@ class BenjaminReulandSite {
     }
   }
 
+  // === FORMULAIRES === //
+  setupForms() {
+    const forms = document.querySelectorAll('form[data-form]');
+
+    forms.forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        this.handleFormSubmit(form);
+      });
+    });
+  }
+
+  async handleFormSubmit(form) {
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    // Validation côté client
+    const errors = this.validateForm(data);
+    if (errors.length > 0) {
+      this.showFormErrors(form, errors);
+      return;
+    }
+
+    // Ajouter la langue
+    data.language = this.currentLang;
+
+    // Bouton de soumission
+    const submitBtn = form.querySelector('[type="submit"]');
+    const originalText = submitBtn.textContent;
+
+    try {
+      submitBtn.disabled = true;
+      submitBtn.textContent = this.getTranslation('sending');
+
+      const response = await fetch('/api/form.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (result.ok) {
+        this.showFormSuccess(form, this.getTranslation('form_success'));
+        form.reset();
+
+        // Track conversion
+        if (this.consentGiven && window.gtag) {
+          gtag('event', 'form_submit_success', {
+            event_category: 'conversion',
+            form_name: form.dataset.form || 'contact'
+          });
+        }
+      } else {
+        this.showFormError(form, result.error || this.getTranslation('form_error'));
+
+        if (this.consentGiven && window.gtag) {
+          gtag('event', 'form_submit_error', {
+            event_category: 'form',
+            error_message: result.error || 'Unknown error'
+          });
+        }
+      }
+
+    } catch (error) {
+      this.showFormError(form, this.getTranslation('form_error'));
+      console.error('Form error:', error);
+
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  }
+
+  validateForm(data) {
+    const errors = [];
+
+    if (!data.name || data.name.length < 2) {
+      errors.push(this.getTranslation('error_name'));
+    }
+
+    if (!data.email || !this.isValidEmail(data.email)) {
+      errors.push(this.getTranslation('error_email'));
+    }
+
+    if (!data.message || data.message.length < 100) {
+      errors.push(this.getTranslation('error_message'));
+    }
+
+    return errors;
+  }
+
+  isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  showFormSuccess(form, message) {
+    this.clearFormMessages(form);
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'form-message success';
+    messageDiv.textContent = message;
+
+    form.appendChild(messageDiv);
+    messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    setTimeout(() => {
+      if (messageDiv.parentNode) {
+        messageDiv.remove();
+      }
+    }, 5000);
+  }
+
+  showFormError(form, message) {
+    this.clearFormMessages(form);
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'form-message error';
+    messageDiv.textContent = message;
+
+    form.appendChild(messageDiv);
+    messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  showFormErrors(form, errors) {
+    this.clearFormMessages(form);
+
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'form-message error';
+    errorDiv.innerHTML = '<ul>' + errors.map(error => `<li>${error}</li>`).join('') + '</ul>';
+
+    form.appendChild(errorDiv);
+  }
+
+  clearFormMessages(form) {
+    const existingMessages = form.querySelectorAll('.form-message');
+    existingMessages.forEach(msg => msg.remove());
+  }
+
+  // === FAQ === //
+  setupFAQ() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = answer.classList.contains('active');
+
+        // Fermer toutes les autres FAQ
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+        document.querySelectorAll('.faq-question').forEach(q => q.setAttribute('aria-expanded', 'false'));
+
+        // Ouvrir/fermer la FAQ actuelle
+        if (!isActive) {
+          answer.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
   // === HERO CANVAS === //
   setupHeroCanvas() {
     const canvas = document.querySelector('[data-hero-canvas]');
@@ -443,12 +619,15 @@ class BenjaminReulandSite {
   initHeroAnimation(canvas) {
     const ctx = canvas.getContext('2d');
     const points = [];
-    const numPoints = 50;
+    const numPoints = Math.min(50, Math.floor(window.innerWidth / 30));
 
     const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * window.devicePixelRatio;
+      canvas.height = rect.height * window.devicePixelRatio;
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
     };
 
     resizeCanvas();
@@ -465,35 +644,41 @@ class BenjaminReulandSite {
     }
 
     let animationId;
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+    let lastTime = 0;
 
-      points.forEach(point => {
-        ctx.beginPath();
-        ctx.arc(point.x, point.y, 1, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(240, 239, 233, ${point.alpha})`;
-        ctx.fill();
+    const animate = (currentTime) => {
+      if (currentTime - lastTime >= 16) {
+        ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
 
-        point.x += point.dx;
-        point.y += point.dy;
+        points.forEach(point => {
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, 1, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(240, 239, 233, ${point.alpha})`;
+          ctx.fill();
 
-        if (point.x < 0 || point.x > canvas.offsetWidth) point.dx *= -1;
-        if (point.y < 0 || point.y > canvas.offsetHeight) point.dy *= -1;
+          point.x += point.dx;
+          point.y += point.dy;
 
-        point.alpha += (Math.random() - 0.5) * 0.01;
-        point.alpha = Math.max(0.1, Math.min(0.6, point.alpha));
-      });
+          if (point.x < 0 || point.x > canvas.offsetWidth) point.dx *= -1;
+          if (point.y < 0 || point.y > canvas.offsetHeight) point.dy *= -1;
+
+          point.alpha += (Math.random() - 0.5) * 0.01;
+          point.alpha = Math.max(0.1, Math.min(0.6, point.alpha));
+        });
+
+        lastTime = currentTime;
+      }
 
       animationId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animate(0);
 
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            if (!animationId) animate();
+            if (!animationId) animate(0);
           } else {
             if (animationId) {
               cancelAnimationFrame(animationId);
@@ -523,6 +708,54 @@ class BenjaminReulandSite {
     });
   }
 
+  // === TRADUCTIONS === //
+  getTranslation(key) {
+    const translations = {
+      fr: {
+        sending: 'Envoi...',
+        form_success: 'Message bien reçu ! Je vous répondrai rapidement.',
+        form_error: 'Erreur lors de l\'envoi. Veuillez réessayer.',
+        error_name: 'Le nom est requis (minimum 2 caractères)',
+        error_email: 'Adresse email valide requise',
+        error_message: 'Le message doit contenir au moins 100 caractères'
+      },
+      en: {
+        sending: 'Sending...',
+        form_success: 'Message received! I will reply quickly.',
+        form_error: 'Error sending message. Please try again.',
+        error_name: 'Name is required (minimum 2 characters)',
+        error_email: 'Valid email address required',
+        error_message: 'Message must contain at least 100 characters'
+      },
+      nl: {
+        sending: 'Verzenden...',
+        form_success: 'Bericht ontvangen! Ik zal snel antwoorden.',
+        form_error: 'Fout bij verzenden. Probeer opnieuw.',
+        error_name: 'Naam is vereist (minimaal 2 tekens)',
+        error_email: 'Geldig e-mailadres vereist',
+        error_message: 'Bericht moet minimaal 100 tekens bevatten'
+      },
+      de: {
+        sending: 'Senden...',
+        form_success: 'Nachricht erhalten! Ich antworte schnell.',
+        form_error: 'Fehler beim Senden. Bitte versuchen Sie es erneut.',
+        error_name: 'Name ist erforderlich (mindestens 2 Zeichen)',
+        error_email: 'Gültige E-Mail-Adresse erforderlich',
+        error_message: 'Nachricht muss mindestens 100 Zeichen enthalten'
+      },
+      sv: {
+        sending: 'Skickar...',
+        form_success: 'Meddelande mottaget! Jag svarar snabbt.',
+        form_error: 'Fel vid skickande. Försök igen.',
+        error_name: 'Namn krävs (minst 2 tecken)',
+        error_email: 'Giltig e-postadress krävs',
+        error_message: 'Meddelandet måste innehålla minst 100 tecken'
+      }
+    };
+
+    return translations[this.currentLang]?.[key] || translations.fr[key] || key;
+  }
+
   trackPageView() {
     if (window.gtag) {
       gtag('event', 'page_view', {
@@ -534,112 +767,11 @@ class BenjaminReulandSite {
   }
 }
 
-// CSS pour les animations
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .search-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    background: rgba(46, 59, 85, 0.8);
-    backdrop-filter: blur(8px);
-    display: none;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 3rem 1.5rem;
-  }
-
-  .search-panel.active {
-    display: flex;
-  }
-
-  .search-box {
-    width: 100%;
-    max-width: 600px;
-    background: var(--bg-0);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .search-input {
-    width: 100%;
-    padding: var(--space-md);
-    font-size: var(--text-lg);
-    border: 2px solid var(--bg-2);
-    border-radius: var(--radius);
-    margin-bottom: var(--space-md);
-  }
-
-  .search-results {
-    max-height: 400px;
-    overflow-y: auto;
-  }
-
-  .search-result {
-    padding: var(--space-md);
-    border-bottom: 1px solid var(--bg-2);
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-
-  .search-result:hover {
-    background-color: var(--bg-1);
-  }
-
-  .search-result-title {
-    font-weight: 600;
-    margin-bottom: var(--space-xs);
-  }
-
-  .search-result-excerpt {
-    font-size: var(--text-sm);
-    color: var(--text-2);
-  }
-
-  .consent-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: var(--bg-0);
-    border-top: 1px solid var(--bg-2);
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(100%);
-    transition: transform 300ms ease-out;
-  }
-
-  .consent-banner.show {
-    transform: translateY(0);
-  }
-
-  .consent-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-lg);
-    flex-wrap: wrap;
-  }
-
-  .consent-actions {
-    display: flex;
-    gap: var(--space-sm);
-  }
-`;
-document.head.appendChild(style);
-
 // Initialisation au chargement
 document.addEventListener('DOMContentLoaded', () => {
   window.brSite = new BenjaminReulandSite();
 });
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = BenjaminReulandSite;
+}
