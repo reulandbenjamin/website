@@ -1,0 +1,99 @@
+{
+  "name": "benjamin-reuland-website",
+  "version": "1.0.0",
+  "description": "Site personnel de Benjamin Reuland - Ingénierie & Web, au service du réel",
+  "keywords": [
+    "portfolio",
+    "personal-website",
+    "engineering",
+    "web-development",
+    "multilingual",
+    "accessibility",
+    "performance"
+  ],
+  "author": {
+    "name": "Benjamin Reuland",
+    "email": "contact@benjamin-reuland.be",
+    "url": "https://benjamin-reuland.be"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reulandbenjamin/website.git"
+  },
+  "homepage": "https://benjamin-reuland.be",
+  "bugs": {
+    "url": "https://github.com/reulandbenjamin/website/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "lint": "eslint assets/js/**/*.js --fix && stylelint assets/css/**/*.css --fix",
+    "lint:check": "eslint assets/js/**/*.js && stylelint assets/css/**/*.css",
+    "format": "prettier --write assets/**/*.{js,css,json}",
+    "format:check": "prettier --check assets/**/*.{js,css,json}",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:a11y": "pa11y-ci --sitemap http://localhost:8000/sitemap.xml",
+    "audit:perf": "lighthouse http://localhost:8000 --only-categories=performance --chrome-flags='--headless'",
+    "audit:a11y": "lighthouse http://localhost:8000 --only-categories=accessibility --chrome-flags='--headless'",
+    "audit:seo": "lighthouse http://localhost:8000 --only-categories=seo --chrome-flags='--headless'",
+    "server": "php -S localhost:8000",
+    "dev": "php -S localhost:8000",
+    "build:search": "node scripts/build-search-indexes.js",
+    "validate:html": "html-validate **/*.html",
+    "prepare": "husky install",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@playwright/test": "^1.40.1",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@vitest/coverage-v8": "^1.0.4",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-accessibility": "^3.0.0",
+    "html-validate": "^8.7.4",
+    "husky": "^8.0.3",
+    "lighthouse": "^11.4.0",
+    "lint-staged": "^15.1.0",
+    "lunr": "^2.3.9",
+    "pa11y-ci": "^3.0.1",
+    "prettier": "^3.1.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "typescript": "^5.3.2",
+    "vitest": "^1.0.4"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ],
+    "*.html": [
+      "html-validate"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "type": "module"
+}
