@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Benjamin Reuland</title>
+    <meta name="description" content="Contact me for a web project, a collaboration, or any other inquiry via the contact form.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="canonical" href="https://benjamin-reuland.be/en/contact.html">
+    <link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/contact.html">
+    <link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/contact.html">
+    <link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/contact.html">
+    <link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/kontakt.html">
+    <link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/kontakt.html">
+    <link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/contact.html">
+</head>
+<body>
+    <header><!-- Header Placeholder --></header>
+    <main>
+        <section id="contact">
+            <h1>Contact Me</h1>
+            <p>Have a project in mind? A question? Or just want to connect? Fill out the form below, and I'll get back to you as soon as possible.</p>
+            <form id="contact-form" action="../api/form.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                 <div class="form-group">
+                    <p class="privacy-notice">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.</p>
+                </div>
+                <input type="hidden" name="lang" value="en">
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+            <div id="form-status"></div>
+        </section>
+    </main>
+    <footer><!-- Footer Placeholder --></footer>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
