@@ -1,0 +1,93 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production builds (not applicable but keeping for future)
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE and editor files
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output/
+
+# Test results
+test-results/
+playwright-report/
+test-results.xml
+
+# Form storage (backup files - keep structure but not content)
+storage/forms/*.json
+!storage/forms/.gitkeep
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Cache
+.cache/
+.eslintcache
+.stylelintcache
+
+# PHP
+vendor/
+composer.lock
+
+# Generated search indexes (will be committed)
+# search/*.json files are committed as they're manually generated
+
+# Generated sitemaps and robots (will be committed)
+# sitemap.xml and robots.txt are committed
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+
+# Local configuration
+config.local.php
+.htaccess.local
+
+# Lighthouse reports (local testing)
+lighthouse-report.html
+lighthouse-report.json
