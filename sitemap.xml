@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ==============================================
+       SITEMAP MULTILINGUE - benjamin-reuland.be
+       ==============================================
+       Toutes les pages avec relations hreflang
+       Dernière mise à jour : Septembre 2025
+       ============================================== -->
+
+  <!-- Page d'accueil multilingue -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/" />
+  </url>
+
+  <url>
+    <loc>https://benjamin-reuland.be/en/</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/" />
+  </url>
+
+  <url>
+    <loc>https://benjamin-reuland.be/nl/</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/" />
+  </url>
+
+  <url>
+    <loc>https://benjamin-reuland.be/de/</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/" />
+  </url>
+
+  <url>
+    <loc>https://benjamin-reuland.be/sv/</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/" />
+  </url>
+
+  <!-- Pages À propos -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/a-propos.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/a-propos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/over-mij.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/uber-mich.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/om-mig.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/a-propos.html" />
+  </url>
+
+  <url>
+    <loc>https://benjamin-reuland.be/en/about.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/a-propos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/about.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/over-mij.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/uber-mich.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/om-mig.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/a-propos.html" />
+  </url>
+
+  <!-- Pages Études -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/etudes.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/etudes.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/education.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/onderwijs.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/bildung.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/utbildning.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/etudes.html" />
+  </url>
+
+  <!-- Pages Projets (liste) -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/projets/</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/projets/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/projects/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/projecten/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/projekte/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/projekt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/projets/" />
+  </url>
+
+  <!-- Pages Engagements -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/mes-engagements.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/mes-engagements.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/my-commitments.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/mijn-engagementen.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/meine-engagements.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/mina-engagemang.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/mes-engagements.html" />
+  </url>
+
+  <!-- Pages Services -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/services.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/services.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/services.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/diensten.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/dienstleistungen.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/tjanster.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/services.html" />
+  </url>
+
+  <!-- Pages Contact -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/contact.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/contact.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/contact.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/contact.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/kontakt.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/kontakt.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/contact.html" />
+  </url>
+
+  <!-- Pages CV -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/cv.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/cv.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/cv.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/cv.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/lebenslauf.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/cv.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/cv.html" />
+  </url>
+
+  <!-- Pages légales (français uniquement) -->
+  <url>
+    <loc>https://benjamin-reuland.be/privacy.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://benjamin-reuland.be/mentions-legales.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ==============================================
+       PROJETS INDIVIDUELS (exemples - à compléter)
+       ============================================== -->
+
+  <!-- Projet Station de mesure -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/projets/station-mesure-environnementale.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/projets/station-mesure-environnementale.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/projects/environmental-monitoring-station.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/projecten/milieu-meetstation.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/projekte/umwelt-messstation.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/projekt/miljoovervakningsstation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/projets/station-mesure-environnementale.html" />
+  </url>
+
+  <!-- Projet Analyse ferroviaire -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/projets/plateforme-analyse-ferroviaire-ue.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/projets/plateforme-analyse-ferroviaire-ue.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/projects/eu-railway-analysis-platform.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/projecten/eu-spoorweg-analyse-platform.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/projekte/eu-eisenbahn-analyse-plattform.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/projekt/eu-jarnvag-analysplattform.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/projets/plateforme-analyse-ferroviaire-ue.html" />
+  </url>
+
+  <!-- Projet Arroseur automatique -->
+  <url>
+    <loc>https://benjamin-reuland.be/fr/projets/arroseur-automatique-arduino.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/projets/arroseur-automatique-arduino.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/projects/automatic-sprinkler-arduino.html" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/projecten/automatische-sproeier-arduino.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/projekte/automatische-bewaesserung-arduino.html" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/projekt/automatisk-sprinkler-arduino.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/projets/arroseur-automatique-arduino.html" />
+  </url>
+
+</urlset>
