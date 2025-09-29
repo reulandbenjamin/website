@@ -3,7 +3,7 @@
  * Chargé uniquement après consentement utilisateur
  */
 
-window.GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // À configurer
+window.GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // À configurer dans .env
 
 function loadGA4Events() {
   if (!window.gtag) {
@@ -29,7 +29,8 @@ function setupWebVitals() {
           event_category: 'performance',
           metric_name: 'LCP',
           metric_value: Math.round(metric.value),
-          metric_id: metric.id
+          metric_id: metric.id,
+          page_location: window.location.href
         });
       });
 
@@ -38,7 +39,8 @@ function setupWebVitals() {
           event_category: 'performance',
           metric_name: 'INP',
           metric_value: Math.round(metric.value),
-          metric_id: metric.id
+          metric_id: metric.id,
+          page_location: window.location.href
         });
       });
 
@@ -47,7 +49,28 @@ function setupWebVitals() {
           event_category: 'performance',
           metric_name: 'CLS',
           metric_value: Math.round(metric.value * 1000) / 1000,
-          metric_id: metric.id
+          metric_id: metric.id,
+          page_location: window.location.href
+        });
+      });
+
+      webVitals.onFCP((metric) => {
+        gtag('event', 'web_vitals', {
+          event_category: 'performance',
+          metric_name: 'FCP',
+          metric_value: Math.round(metric.value),
+          metric_id: metric.id,
+          page_location: window.location.href
+        });
+      });
+
+      webVitals.onTTFB((metric) => {
+        gtag('event', 'web_vitals', {
+          event_category: 'performance',
+          metric_name: 'TTFB',
+          metric_value: Math.round(metric.value),
+          metric_id: metric.id,
+          page_location: window.location.href
         });
       });
     }
@@ -64,7 +87,31 @@ function setupFormEvents() {
 
       gtag('event', 'form_submit_attempt', {
         event_category: 'form',
-        form_name: formName
+        form_name: formName,
+        page_location: window.location.href
+      });
+    });
+
+    const inputs = form.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+      let focusTime;
+
+      input.addEventListener('focus', () => {
+        focusTime = Date.now();
+      });
+
+      input.addEventListener('blur', () => {
+        if (focusTime) {
+          const timeSpent = Date.now() - focusTime;
+          if (timeSpent > 2000) {
+            gtag('event', 'form_field_engagement', {
+              event_category: 'form',
+              field_name: input.name || input.id,
+              time_spent: Math.round(timeSpent / 1000),
+              page_location: window.location.href
+            });
+          }
+        }
       });
     });
   });
@@ -87,7 +134,8 @@ function setupScrollTracking() {
           trackedMarks.add(mark);
           gtag('event', 'scroll_depth', {
             event_category: 'engagement',
-            scroll_percent: mark
+            scroll_percent: mark,
+            page_location: window.location.href
           });
         }
       });
@@ -113,7 +161,8 @@ function setupOutboundLinks() {
       gtag('event', 'outbound_click', {
         event_category: 'outbound',
         link_domain: new URL(link.href).hostname,
-        link_url: link.href
+        link_url: link.href,
+        page_location: window.location.href
       });
     });
   });
@@ -128,7 +177,8 @@ function setupOutboundLinks() {
 
       gtag('event', 'social_click', {
         event_category: 'social',
-        social_platform: platform
+        social_platform: platform,
+        page_location: window.location.href
       });
     });
   });
@@ -139,10 +189,58 @@ window.trackCustomEvent = function(eventName, parameters = {}) {
     gtag('event', eventName, {
       event_category: 'custom',
       ...parameters,
+      page_location: window.location.href,
       timestamp: Date.now()
     });
   }
 };
+
+window.trackConversion = function(type, value = {}) {
+  if (!window.gtag) return;
+
+  const conversions = {
+    'form_success': () => gtag('event', 'form_submit_success', {
+      event_category: 'conversion',
+      form_name: value.form || 'contact',
+      page_location: window.location.href
+    }),
+
+    'cv_download': () => gtag('event', 'cv_download', {
+      event_category: 'conversion',
+      file_name: value.filename || 'cv.pdf',
+      language: value.language || 'fr',
+      page_location: window.location.href
+    }),
+
+    'contact_cta': () => gtag('event', 'cta_contact', {
+      event_category: 'conversion',
+      cta_location: value.location || 'unknown',
+      page_location: window.location.href
+    })
+  };
+
+  if (conversions[type]) {
+    conversions[type]();
+  }
+};
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    if (window.performance && window.gtag) {
+      const navigation = performance.getEntriesByType('navigation')[0];
+
+      if (navigation) {
+        gtag('event', 'page_timing', {
+          event_category: 'performance',
+          dom_content_loaded: Math.round(navigation.domContentLoadedEventEnd - navigation.navigationStart),
+          load_complete: Math.round(navigation.loadEventEnd - navigation.navigationStart),
+          dns_time: Math.round(navigation.domainLookupEnd - navigation.domainLookupStart),
+          page_location: window.location.href
+        });
+      }
+    }
+  }, 1000);
+});
 
 window.addEventListener('error', (event) => {
   if (window.gtag) {
@@ -150,7 +248,18 @@ window.addEventListener('error', (event) => {
       event_category: 'error',
       error_message: event.message,
       error_filename: event.filename,
-      error_lineno: event.lineno
+      error_lineno: event.lineno,
+      page_location: window.location.href
+    });
+  }
+});
+
+window.addEventListener('unhandledrejection', (event) => {
+  if (window.gtag) {
+    gtag('event', 'promise_rejection', {
+      event_category: 'error',
+      error_reason: event.reason?.toString() || 'Unknown',
+      page_location: window.location.href
     });
   }
 });
