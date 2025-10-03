@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Startseite",
+    "description": "Technik & Web",
+    "content": "Benjamin Reuland Student HEPL Elektronik embedded Projekte Web",
+    "permalink": "https://benjamin-reuland.be/de/",
+    "lang": "de"
+  },
+  {
+    "title": "Über mich",
+    "description": "Ingenieurstudent",
+    "content": "HEPL Lüttich Elektronik Python Arduino Web Repair Café JEF",
+    "permalink": "https://benjamin-reuland.be/de/ueber-mich.html",
+    "lang": "de"
+  },
+  {
+    "title": "Studium",
+    "description": "Ausbildung Kompetenzen",
+    "content": "Bachelor HEPL Elektronik embedded Python C++ Arduino",
+    "permalink": "https://benjamin-reuland.be/de/studium.html",
+    "lang": "de"
+  },
+  {
+    "title": "Messstation",
+    "description": "Klima Automatisierung",
+    "content": "Raspberry Pi Enviro+ Python Sensoren Temperatur Feuchtigkeit",
+    "permalink": "https://benjamin-reuland.be/de/projekte/messstation.html",
+    "lang": "de"
+  },
+  {
+    "title": "Eisenbahn-Plattform",
+    "description": "EU Züge Analyse",
+    "content": "Python Pandas SNCF DB NS Pünktlichkeit Daten Mobilität",
+    "permalink": "https://benjamin-reuland.be/de/projekte/eisenbahn-plattform.html",
+    "lang": "de"
+  },
+  {
+    "title": "Automatische Bewässerung",
+    "description": "Arduino Bewässerung",
+    "content": "Arduino Feuchtigkeitssensor Lithium Batterie Autonomie",
+    "permalink": "https://benjamin-reuland.be/de/projekte/automatische-bewaesserung.html",
+    "lang": "de"
+  },
+  {
+    "title": "Engagements",
+    "description": "Ashoka JEF HEPL",
+    "content": "Ashoka Young Changemaker Repair Café JEF Lüttich Europa Student",
+    "permalink": "https://benjamin-reuland.be/de/engagements.html",
+    "lang": "de"
+  },
+  {
+    "title": "Dienstleistungen",
+    "description": "Websites für Vereine",
+    "content": "Website Visitenkarte Pro maßgeschneidert 650 1400 2600 Euro",
+    "permalink": "https://benjamin-reuland.be/de/dienstleistungen.html",
+    "lang": "de"
+  }
+]
