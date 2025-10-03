@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Home",
+    "description": "Engineering & Web, serving reality",
+    "content": "Benjamin Reuland student HEPL electronics embedded systems projects web engineering",
+    "permalink": "https://benjamin-reuland.be/en/",
+    "lang": "en"
+  },
+  {
+    "title": "About",
+    "description": "Industrial engineering student",
+    "content": "HEPL Liège electronics Python Arduino web self-taught Repair Café JEF",
+    "permalink": "https://benjamin-reuland.be/en/about.html",
+    "lang": "en"
+  },
+  {
+    "title": "Studies",
+    "description": "Education and skills",
+    "content": "Bachelor HEPL electronics embedded Python C++ Arduino I²C BLE",
+    "permalink": "https://benjamin-reuland.be/en/studies.html",
+    "lang": "en"
+  },
+  {
+    "title": "Measurement Station",
+    "description": "Climate automation",
+    "content": "Raspberry Pi Enviro+ Python sensors temperature humidity BME280",
+    "permalink": "https://benjamin-reuland.be/en/projects/measurement-station.html",
+    "lang": "en"
+  },
+  {
+    "title": "Railway Platform",
+    "description": "EU trains analysis",
+    "content": "Python Pandas SNCF DB NS punctuality data mobility",
+    "permalink": "https://benjamin-reuland.be/en/projects/railway-platform.html",
+    "lang": "en"
+  },
+  {
+    "title": "Automatic Irrigation",
+    "description": "Arduino irrigation",
+    "content": "Arduino humidity sensor lithium battery autonomy",
+    "permalink": "https://benjamin-reuland.be/en/projects/automatic-irrigation.html",
+    "lang": "en"
+  },
+  {
+    "title": "Engagements",
+    "description": "Ashoka JEF HEPL",
+    "content": "Ashoka Young Changemaker Repair Café JEF Liège Europe student",
+    "permalink": "https://benjamin-reuland.be/en/my-engagements.html",
+    "lang": "en"
+  },
+  {
+    "title": "Services",
+    "description": "Websites for NGOs",
+    "content": "website showcase pro custom 650 1400 2600 euros Benelux",
+    "permalink": "https://benjamin-reuland.be/en/services.html",
+    "lang": "en"
+  },
+  {
+    "title": "Contact",
+    "description": "Contact me",
+    "content": "form email contact benjamin reuland project quote",
+    "permalink": "https://benjamin-reuland.be/en/contact.html",
+    "lang": "en"
+  }
+]
