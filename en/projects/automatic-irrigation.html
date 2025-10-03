@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Irrigation with Backup — Benjamin Reuland</title>
+    <meta name="description" content="Smart Arduino irrigation system with battery backup">
+
+    <link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/projets/arroseur-automatique.html">
+    <link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/projects/automatic-irrigation.html">
+    <link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/projecten/automatische-irrigatie.html">
+    <link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/projekte/automatische-bewaesserung.html">
+    <link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/projekt/automatisk-bevattning.html">
+    <link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/projets/arroseur-automatique.html">
+
+    <link rel="canonical" href="https://benjamin-reuland.be/en/projects/automatic-irrigation.html">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <meta property="og:title" content="Automatic Irrigation with Backup — Benjamin Reuland">
+    <meta property="og:description" content="Smart Arduino irrigation system with battery backup">
+    <meta property="og:image" content="https://benjamin-reuland.be/og-default.svg">
+    <meta property="og:url" content="https://benjamin-reuland.be/en/projects/automatic-irrigation.html">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <main class="container project-detail">
+        <nav class="breadcrumb">
+            <a href="/en/">Home</a> → <a href="/en/projects/">Projects</a> → Automatic Irrigation
+        </nav>
+
+        <article>
+            <header class="project-header">
+                <span class="project-tag">Engineering</span>
+                <h1>Automatic Irrigation with Backup</h1>
+                <p class="project-subtitle">Smart irrigation system with energy autonomy</p>
+            </header>
+
+            <section class="project-section">
+                <h2>Context</h2>
+                <p>Personal project aimed at automating the watering of a small urban vegetable garden while ensuring backup power in case of power outage, in an approach of water economy and autonomy.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Problem</h2>
+                <p>Commercial automatic irrigation systems generally do not have backup power and water at fixed intervals, regardless of actual soil moisture.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Solution</h2>
+                <p>Development of an embedded system based on Arduino: Arduino Uno + capacitive moisture sensor, 5V relay for 12V solenoid valve, 18650 lithium-ion battery (3.7V, 2600mAh) + TP4056 charging module, DC-DC converter (step-up), decision algorithm: watering only if humidity < threshold for 2h.</p>
+                <p><strong>Tech stack:</strong> C++ (Arduino IDE), analog management, PWM control.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Impact</h2>
+                <ul>
+                    <li>40% reduction in water consumption (vs manual watering)</li>
+                    <li>12h battery autonomy in case of power outage</li>
+                    <li>Total cost: ~€25</li>
+                    <li>System operational for 8 months without failure</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>Technologies</h2>
+                <div class="tech-stack">
+                    <span class="badge">C++</span>
+                    <span class="badge">Arduino</span>
+                    <span class="badge">IoT</span>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <h2>Got an IoT project in mind?</h2>
+                <a href="/en/contact.html" class="btn btn-primary">Let's discuss</a>
+            </section>
+        </article>
+    </main>
+    <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/ga4-events.js" defer></script>
+</body>
+</html>
