@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Benjamin Reuland</title>
+    <meta name="description" content="Contactez-moi pour discuter de votre projet web">
+
+    <link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/contact.html">
+    <link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/contact.html">
+    <link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/contact.html">
+    <link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/kontakt.html">
+    <link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/kontakt.html">
+    <link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/contact.html">
+
+    <link rel="canonical" href="https://benjamin-reuland.be/fr/contact.html">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <meta property="og:title" content="Contact — Benjamin Reuland">
+    <meta property="og:description" content="Contactez-moi pour discuter de votre projet web">
+    <meta property="og:image" content="https://benjamin-reuland.be/og-default.svg">
+    <meta property="og:url" content="https://benjamin-reuland.be/fr/contact.html">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <main class="container">
+        <h1>Contact</h1>
+        <p class="intro">Discutons de votre projet</p>
+
+        <div class="contact-grid">
+            <section class="contact-form">
+                <form id="contactForm" action="/api/form.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nom *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message * (minimum 100 caractères)</label>
+                        <textarea id="message" name="message" rows="6" required minlength="100"></textarea>
+                        <span class="char-count">0/100</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="consent" required>
+                            J'accepte que mes données soient traitées pour répondre à ma demande (voir <a href="/privacy.html">politique de confidentialité</a>)
+                        </label>
+                    </div>
+
+                    <!-- Honeypot anti-spam -->
+                    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <!-- reCAPTCHA v3 (invisible) -->
+                    <input type="hidden" id="recaptcha-token" name="recaptcha_token">
+
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+
+                    <div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+                </form>
+            </section>
+
+            <aside class="contact-info">
+                <h2>Informations</h2>
+                <p><strong>Email :</strong> <a href="mailto:contact@benjamin-reuland.be">contact@benjamin-reuland.be</a></p>
+
+                <h3>Réseaux sociaux</h3>
+                <ul class="social-links">
+                    <li><a href="https://linkedin.com/in/breuland" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="https://instagram.com/benjaminreuland" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://facebook.com/benjareuland200" target="_blank" rel="noopener">Facebook</a></li>
+                </ul>
+
+                <h3>CV</h3>
+                <p><a href="/fr/cv.html" class="btn btn-secondary">Télécharger mon CV</a></p>
+            </aside>
+        </div>
+    </main>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY"></script>
+    <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/ga4-events.js" defer></script>
+</body>
+</html>
