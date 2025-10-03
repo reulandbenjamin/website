@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Accueil",
+    "description": "Ingénierie & Web, au service du réel",
+    "content": "Benjamin Reuland étudiant HEPL électronique systèmes embarqués projets web ingénierie",
+    "permalink": "https://benjamin-reuland.be/fr/",
+    "lang": "fr"
+  },
+  {
+    "title": "À propos",
+    "description": "Étudiant en ingénierie industrielle",
+    "content": "HEPL Liège électronique Python Arduino web autoformation Repair Café JEF",
+    "permalink": "https://benjamin-reuland.be/fr/a-propos.html",
+    "lang": "fr"
+  },
+  {
+    "title": "Études",
+    "description": "Formation et compétences",
+    "content": "Bachelor HEPL électronique embedded Python C++ Arduino I²C BLE",
+    "permalink": "https://benjamin-reuland.be/fr/etudes.html",
+    "lang": "fr"
+  },
+  {
+    "title": "Station de mesure",
+    "description": "Automatisation climat",
+    "content": "Raspberry Pi Enviro+ Python capteurs température humidité BME280",
+    "permalink": "https://benjamin-reuland.be/fr/projets/station-mesure.html",
+    "lang": "fr"
+  },
+  {
+    "title": "Plateforme ferroviaire",
+    "description": "Analyse trains EU",
+    "content": "Python Pandas SNCF DB NS ponctualité données mobilité",
+    "permalink": "https://benjamin-reuland.be/fr/projets/plateforme-ferroviaire.html",
+    "lang": "fr"
+  },
+  {
+    "title": "Arroseur automatique",
+    "description": "Irrigation Arduino",
+    "content": "Arduino capteur humidité batterie lithium autonomie",
+    "permalink": "https://benjamin-reuland.be/fr/projets/arroseur-automatique.html",
+    "lang": "fr"
+  },
+  {
+    "title": "Engagements",
+    "description": "Ashoka JEF HEPL",
+    "content": "Ashoka Young Changemaker Repair Café JEF Liège Europe étudiant",
+    "permalink": "https://benjamin-reuland.be/fr/mes-engagements.html",
+    "lang": "fr"
+  },
+  {
+    "title": "Services",
+    "description": "Sites web associations",
+    "content": "site web vitrine pro mesure 650 1400 2600 euros Benelux",
+    "permalink": "https://benjamin-reuland.be/fr/services.html",
+    "lang": "fr"
+  },
+  {
+    "title": "Contact",
+    "description": "Me contacter",
+    "content": "formulaire email contact benjamin reuland projet devis",
+    "permalink": "https://benjamin-reuland.be/fr/contact.html",
+    "lang": "fr"
+  }
+]
