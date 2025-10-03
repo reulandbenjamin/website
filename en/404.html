@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Benjamin Reuland</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to Benjamin Reuland's homepage or explore other sections.">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <!-- Prevent indexing -->
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo" aria-label="Homepage">
+                Benjamin Reuland
+            </a>
+            
+            <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="studies.html" class="nav__link">Studies</a></li>
+                    <li><a href="projects/index.html" class="nav__link">Projects</a></li>
+                    <li><a href="my-engagements.html" class="nav__link">Engagements</a></li>
+                    <li><a href="services.html" class="nav__link">Services</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
+                    <li><a href="cv.html" class="nav__link">CV</a></li>
+                </ul>
+                
+                <div class="nav__actions">
+                    <div class="language-selector">
+                        <button class="language-selector__toggle" aria-label="Select language">
+                            <span class="language-selector__current">EN</span>
+                            <svg class="language-selector__icon" width="12" height="8" viewBox="0 0 12 8">
+                                <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="language-selector__menu">
+                            <li><a href="../fr/404.html" hreflang="fr">Français</a></li>
+                            <li><a href="404.html" hreflang="en" class="language-selector__current">English</a></li>
+                            <li><a href="../nl/404.html" hreflang="nl">Nederlands</a></li>
+                            <li><a href="../de/404.html" hreflang="de">Deutsch</a></li>
+                            <li><a href="../sv/404.html" hreflang="sv">Svenska</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="search-toggle" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M19 19l-3.5-3.5m0 0a8 8 0 111.414-1.414L19 19z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="error-page">
+                <div class="error-page__content">
+                    <div class="error-page__number">404</div>
+                    <h1 class="error-page__title">Page Not Found</h1>
+                    <p class="error-page__description">
+                        The page you're looking for doesn't exist or has been moved.
+                    </p>
+                    
+                    <div class="error-page__actions">
+                        <a href="index.html" class="btn btn--primary">Back to Homepage</a>
+                        <a href="contact.html" class="btn btn--outline">Contact me</a>
+                    </div>
+                    
+                    <div class="error-page__suggestions">
+                        <h2>You might be interested in:</h2>
+                        <ul>
+                            <li><a href="about.html">About me</a></li>
+                            <li><a href="studies.html">My studies</a></li>
+                            <li><a href="projects/index.html">My projects</a></li>
+                            <li><a href="services.html">Web services</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

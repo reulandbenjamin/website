@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Benjamin Reuland</title>
+    <meta name="description" content="Discover Benjamin Reuland's web development and engineering projects. From websites to embedded systems projects.">
+    
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href="https://benjamin-reuland.be/en/projects/">
+    <link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/projets/">
+    <link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/projects/">
+    <link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/projecten/">
+    <link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/projekte/">
+    <link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/projekt/">
+    <link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/projets/">
+    
+    <!-- Meta Tags -->
+    <meta property="og:title" content="Projects - Benjamin Reuland">
+    <meta property="og:description" content="Discover Benjamin Reuland's web development and engineering projects. From websites to embedded systems projects.">
+    <meta property="og:url" content="https://benjamin-reuland.be/en/projects/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://benjamin-reuland.be/og-default.svg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav__container">
+            <a href="../index.html" class="nav__logo" aria-label="Homepage">
+                Benjamin Reuland
+            </a>
+            
+            <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li><a href="../index.html" class="nav__link">Home</a></li>
+                    <li><a href="../about.html" class="nav__link">About</a></li>
+                    <li><a href="../studies.html" class="nav__link">Studies</a></li>
+                    <li><a href="index.html" class="nav__link nav__link--active">Projects</a></li>
+                    <li><a href="../my-engagements.html" class="nav__link">Engagements</a></li>
+                    <li><a href="../services.html" class="nav__link">Services</a></li>
+                    <li><a href="../contact.html" class="nav__link">Contact</a></li>
+                    <li><a href="../cv.html" class="nav__link">CV</a></li>
+                </ul>
+                
+                <div class="nav__actions">
+                    <div class="language-selector">
+                        <button class="language-selector__toggle" aria-label="Select language">
+                            <span class="language-selector__current">EN</span>
+                            <svg class="language-selector__icon" width="12" height="8" viewBox="0 0 12 8">
+                                <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="language-selector__menu">
+                            <li><a href="../../fr/projets/" hreflang="fr">Français</a></li>
+                            <li><a href="index.html" hreflang="en" class="language-selector__current">English</a></li>
+                            <li><a href="../../nl/projecten/" hreflang="nl">Nederlands</a></li>
+                            <li><a href="../../de/projekte/" hreflang="de">Deutsch</a></li>
+                            <li><a href="../../sv/projekt/" hreflang="sv">Svenska</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="search-toggle" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M19 19l-3.5-3.5m0 0a8 8 0 111.414-1.414L19 19z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="projects-page">
+                <!-- Header -->
+                <header class="page-header">
+                    <h1 class="page-header__title">My Projects</h1>
+                    <p class="page-header__subtitle">Discover my web development and engineering realizations</p>
+                </header>
+
+                <!-- Projects Grid -->
+                <section class="projects-section">
+                    <div class="projects-filters">
+                        <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="web">Web Development</button>
+                        <button class="filter-btn" data-filter="electronics">Electronics</button>
+                        <button class="filter-btn" data-filter="academic">Academic</button>
+                    </div>
+
+                    <div class="projects-grid">
+                        <article class="project-card" data-category="web">
+                            <div class="project-card__image">
+                                <img src="../../assets/img/projects/website-portfolio.webp" alt="Personal Portfolio Website" loading="lazy">
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Personal Portfolio</h3>
+                                <p class="project-card__description">
+                                    Multilingual portfolio website built with vanilla HTML, CSS, and JavaScript. Features search functionality and optimized performance.
+                                </p>
+                                <div class="project-card__tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">CSS3</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">PHP</span>
+                                </div>
+                                <div class="project-card__actions">
+                                    <a href="portfolio-website.html" class="btn btn--outline btn--sm">View Details</a>
+                                    <a href="https://github.com/reulandbenjamin/website" class="btn btn--ghost btn--sm" target="_blank" rel="noopener">
+                                        <svg width="16" height="16" viewBox="0 0 24 24">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="electronics academic">
+                            <div class="project-card__image">
+                                <img src="../../assets/img/projects/arduino-sensors.webp" alt="Arduino Sensor Network" loading="lazy">
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Arduino Sensor Network</h3>
+                                <p class="project-card__description">
+                                    Embedded systems project for environmental monitoring using Arduino microcontrollers and various sensors.
+                                </p>
+                                <div class="project-card__tags">
+                                    <span class="tag">Arduino</span>
+                                    <span class="tag">C++</span>
+                                    <span class="tag">Sensors</span>
+                                    <span class="tag">IoT</span>
+                                </div>
+                                <div class="project-card__actions">
+                                    <a href="arduino-sensors.html" class="btn btn--outline btn--sm">View Details</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="web">
+                            <div class="project-card__image">
+                                <img src="../../assets/img/projects/repair-cafe-website.webp" alt="Repair Café Website" loading="lazy">
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Repair Café Website</h3>
+                                <p class="project-card__description">
+                                    Community website for local Repair Café with event management and volunteer coordination features.
+                                </p>
+                                <div class="project-card__tags">
+                                    <span class="tag">WordPress</span>
+                                    <span class="tag">PHP</span>
+                                    <span class="tag">MySQL</span>
+                                    <span class="tag">Community</span>
+                                </div>
+                                <div class="project-card__actions">
+                                    <a href="repair-cafe-website.html" class="btn btn--outline btn--sm">View Details</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card" data-category="electronics academic">
+                            <div class="project-card__image">
+                                <img src="../../assets/img/projects/pcb-design.webp" alt="PCB Design Project" loading="lazy">
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">PCB Design Project</h3>
+                                <p class="project-card__description">
+                                    Custom PCB design for a university project involving analog signal processing and microcontroller integration.
+                                </p>
+                                <div class="project-card__tags">
+                                    <span class="tag">KiCad</span>
+                                    <span class="tag">Electronics</span>
+                                    <span class="tag">PCB</span>
+                                    <span class="tag">Analog</span>
+                                </div>
+                                <div class="project-card__actions">
+                                    <a href="pcb-design.html" class="btn btn--outline btn--sm">View Details</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="cta-section">
+                    <div class="cta-section__content">
+                        <h2>Interested in collaborating?</h2>
+                        <p>I'm always looking for new challenges and interesting projects to work on.</p>
+                        <a href="../contact.html" class="btn btn--primary">Get in touch</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">Benjamin Reuland</h3>
+                    <p class="footer__description">
+                        Electronics & embedded systems student, self-taught web developer, and engaged citizen.
+                    </p>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Navigation</h4>
+                    <ul class="footer__links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../studies.html">Studies</a></li>
+                        <li><a href="index.html">Projects</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Services</h4>
+                    <ul class="footer__links">
+                        <li><a href="../services.html">Web Development</a></li>
+                        <li><a href="../services.html#consulting">Technical Consulting</a></li>
+                        <li><a href="../services.html#maintenance">Website Maintenance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Legal</h4>
+                    <ul class="footer__links">
+                        <li><a href="../../privacy.html">Privacy Policy</a></li>
+                        <li><a href="../../mentions-legales.html">Legal Notice</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2025 Benjamin Reuland. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/ga4-events.js"></script>
+</body>
+</html>
