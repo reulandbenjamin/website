@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arroseur automatique avec secours — Benjamin Reuland</title>
+    <meta name="description" content="Système d'irrigation intelligent Arduino avec alimentation de secours">
+
+    <link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/projets/arroseur-automatique.html">
+    <link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/projects/automatic-irrigation.html">
+    <link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/projecten/automatische-irrigatie.html">
+    <link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/projekte/automatische-bewaesserung.html">
+    <link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/projekt/automatisk-bevattning.html">
+    <link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/projets/arroseur-automatique.html">
+
+    <link rel="canonical" href="https://benjamin-reuland.be/fr/projets/arroseur-automatique.html">
+
+    <link rel="preload" href="/assets/fonts/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/space-grotesk-bold.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <meta property="og:title" content="Arroseur automatique avec secours — Benjamin Reuland">
+    <meta property="og:description" content="Système d'irrigation intelligent Arduino avec alimentation de secours">
+    <meta property="og:image" content="https://benjamin-reuland.be/og-default.svg">
+    <meta property="og:url" content="https://benjamin-reuland.be/fr/projets/arroseur-automatique.html">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu</a>
+
+    <header class="site-header">
+        <nav class="container">
+            <a href="/fr/" class="logo">Benjamin Reuland</a>
+            <ul class="nav-menu">
+                <li><a href="/fr/">Accueil</a></li>
+                <li><a href="/fr/projets/">Projets</a></li>
+                <li><a href="/fr/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container project-detail">
+        <nav aria-label="Fil d'Ariane" class="breadcrumb">
+            <a href="/fr/">Accueil</a> → <a href="/fr/projets/">Projets</a> → Arroseur automatique
+        </nav>
+
+        <article>
+            <header class="project-header">
+                <span class="project-tag">Ingénierie</span>
+                <h1>Arroseur automatique avec secours</h1>
+                <p class="project-subtitle">Système d'irrigation intelligent avec autonomie énergétique</p>
+            </header>
+
+            <section class="project-section">
+                <h2>Contexte</h2>
+                <p>Projet personnel visant à automatiser l'arrosage d'un petit potager urbain tout en garantissant une alimentation de secours en cas de coupure électrique, dans une démarche d'économie d'eau et d'autonomie.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Problème</h2>
+                <p>Les systèmes d'arrosage automatiques commerciaux ne disposent généralement pas d'alimentation de secours et arrosent à intervalles fixes, sans tenir compte de l'humidité réelle du sol.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Solution</h2>
+                <p>Développement d'un système embarqué basé sur Arduino :</p>
+                <ul>
+                    <li>Arduino Uno + capteur d'humidité capacitif (résistant à la corrosion)</li>
+                    <li>Relais 5V pour piloter une électrovanne 12V</li>
+                    <li>Batterie lithium-ion 18650 (3.7V, 2600mAh) + module de charge TP4056</li>
+                    <li>Convertisseur DC-DC (step-up) pour alimenter l'Arduino en cas de coupure</li>
+                    <li>Algorithme de décision : arrosage uniquement si humidité < seuil pendant 2h</li>
+                </ul>
+                <p><strong>Stack technique :</strong> C++ (Arduino IDE), gestion analogique, contrôle PWM.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Impact</h2>
+                <ul>
+                    <li>Réduction de 40% de la consommation d'eau (vs arrosage manuel)</li>
+                    <li>Autonomie de 12h sur batterie en cas de coupure</li>
+                    <li>Coût total : ~25€ (composants disponibles localement)</li>
+                    <li>Système opérationnel depuis 8 mois sans défaillance</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>Technologies</h2>
+                <div class="tech-stack">
+                    <span class="badge">C++</span>
+                    <span class="badge">Arduino</span>
+                    <span class="badge">Capteurs analogiques</span>
+                    <span class="badge">Gestion d'énergie</span>
+                    <span class="badge">IoT</span>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <h2>Apprentissages</h2>
+                <ul>
+                    <li>Conception de circuits électroniques simples</li>
+                    <li>Gestion de l'alimentation et des batteries Li-ion</li>
+                    <li>Programmation C++ embarquée</li>
+                    <li>Calibration de capteurs analogiques</li>
+                </ul>
+            </section>
+
+            <section class="cta-section">
+                <h2>Un projet IoT en tête ?</h2>
+                <a href="/fr/contact.html" class="btn btn-primary">Discutons-en</a>
+                <a href="/fr/projets/" class="btn btn-secondary">Voir les autres projets</a>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Benjamin Reuland.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/ga4-events.js" defer></script>
+</body>
+</html>
