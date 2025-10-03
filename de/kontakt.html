@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Benjamin Reuland</title>
+    <meta name="description" content="Kontaktieren Sie Benjamin Reuland für Webentwicklungsprojekte, technische Beratung oder Zusammenarbeit.">
+    
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href="https://benjamin-reuland.be/de/kontakt.html">
+    <link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/contact.html">
+    <link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/contact.html">
+    <link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/contact.html">
+    <link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/kontakt.html">
+    <link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/kontakt.html">
+    <link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/contact.html">
+    
+    <!-- Meta Tags -->
+    <meta property="og:title" content="Kontakt - Benjamin Reuland">
+    <meta property="og:description" content="Kontaktieren Sie Benjamin Reuland für Webentwicklungsprojekte, technische Beratung oder Zusammenarbeit.">
+    <meta property="og:url" content="https://benjamin-reuland.be/de/kontakt.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://benjamin-reuland.be/og-default.svg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+        <div class="nav__container">
+            <a href="index.html" class="nav__logo" aria-label="Startseite">
+                Benjamin Reuland
+            </a>
+            
+            <button class="nav__toggle" aria-label="Navigationsmenü umschalten" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Start</a></li>
+                    <li><a href="ueber-mich.html" class="nav__link">Über mich</a></li>
+                    <li><a href="studium.html" class="nav__link">Studium</a></li>
+                    <li><a href="projekte/index.html" class="nav__link">Projekte</a></li>
+                    <li><a href="engagements.html" class="nav__link">Engagements</a></li>
+                    <li><a href="dienstleistungen.html" class="nav__link">Services</a></li>
+                    <li><a href="kontakt.html" class="nav__link nav__link--active">Kontakt</a></li>
+                    <li><a href="lebenslauf.html" class="nav__link">Lebenslauf</a></li>
+                </ul>
+                
+                <div class="nav__actions">
+                    <div class="language-selector">
+                        <button class="language-selector__toggle" aria-label="Sprache auswählen">
+                            <span class="language-selector__current">DE</span>
+                            <svg class="language-selector__icon" width="12" height="8" viewBox="0 0 12 8">
+                                <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="language-selector__menu">
+                            <li><a href="../fr/contact.html" hreflang="fr">Français</a></li>
+                            <li><a href="../en/contact.html" hreflang="en">English</a></li>
+                            <li><a href="../nl/contact.html" hreflang="nl">Nederlands</a></li>
+                            <li><a href="kontakt.html" hreflang="de" class="language-selector__current">Deutsch</a></li>
+                            <li><a href="../sv/kontakt.html" hreflang="sv">Svenska</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="search-toggle" aria-label="Suchen">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M19 19l-3.5-3.5m0 0a8 8 0 111.414-1.414L19 19z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="contact-page">
+                <!-- Header -->
+                <header class="page-header">
+                    <h1 class="page-header__title">Kontakt</h1>
+                    <p class="page-header__subtitle">Lassen Sie uns über Ihr Projekt sprechen</p>
+                </header>
+
+                <!-- Contact Form -->
+                <section class="contact-form-section">
+                    <div class="contact-form-container">
+                        <div class="contact-form-intro">
+                            <h2>Schreiben Sie mir</h2>
+                            <p>
+                                Haben Sie ein Webentwicklungsprojekt, benötigen technische Beratung oder 
+                                möchten einfach nur über Möglichkeiten der Zusammenarbeit sprechen? 
+                                Ich freue mich auf Ihre Nachricht!
+                            </p>
+                        </div>
+                        
+                        <form class="contact-form" action="../api/form.php" method="POST" data-recaptcha>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Name *</label>
+                                    <input type="text" id="name" name="name" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">E-Mail *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Betreff *</label>
+                                <input type="text" id="subject" name="subject" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service" class="form-label">Interessiert an</label>
+                                <select id="service" name="service" class="form-select">
+                                    <option value="">Wählen Sie einen Service</option>
+                                    <option value="web-development">Webentwicklung</option>
+                                    <option value="technical-consulting">Technische Beratung</option>
+                                    <option value="maintenance">Website-Wartung</option>
+                                    <option value="collaboration">Zusammenarbeit</option>
+                                    <option value="other">Anderes</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Nachricht *</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="6" required placeholder="Beschreiben Sie Ihr Projekt oder Ihre Anfrage..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="privacy" name="privacy" required>
+                                    <label for="privacy" class="checkbox-label">
+                                        Ich habe die <a href="../privacy.html" target="_blank">Datenschutzrichtlinie</a> gelesen und stimme ihr zu *
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <label for="newsletter" class="checkbox-label">
+                                        Ich möchte über neue Projekte und Services informiert werden
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn--primary btn--large" data-ga-event="contact_form_submit">
+                                    <span class="btn__text">Nachricht senden</span>
+                                    <span class="btn__loading">Wird gesendet...</span>
+                                </button>
+                            </div>
+                            
+                            <div class="form-notice">
+                                <p>Diese Website ist durch reCAPTCHA geschützt und es gelten die <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzbestimmungen</a> und <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Nutzungsbedingungen</a> von Google.</p>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Alternative Contact Methods -->
+                <section class="contact-alternatives">
+                    <h2>Alternative Kontaktmöglichkeiten</h2>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-method__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="contact-method__content">
+                                <h3>E-Mail</h3>
+                                <p>Für direkte Anfragen</p>
+                                <a href="mailto:contact@benjamin-reuland.be" class="contact-method__link">contact@benjamin-reuland.be</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-method__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" fill="none" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="contact-method__content">
+                                <h3>Telefon</h3>
+                                <p>Für dringende Anfragen</p>
+                                <a href="tel:+32123456789" class="contact-method__link">+32 123 456 789</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-method__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="contact-method__content">
+                                <h3>Standort</h3>
+                                <p>Liège, Belgien</p>
+                                <span class="contact-method__text">Verfügbar für lokale und remote Projekte</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section class="contact-faq">
+                    <h2>Häufig gestellte Fragen</h2>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h3>Wie schnell antworten Sie?</h3>
+                            <p>Ich bemühe mich, innerhalb von 24 Stunden zu antworten, normalerweise sogar schneller während der Geschäftszeiten.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3>Bieten Sie kostenlose Beratung an?</h3>
+                            <p>Ja, das erste Beratungsgespräch ist kostenlos, um Ihr Projekt zu besprechen und eine Lösung vorzuschlagen.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3>Arbeiten Sie remote?</h3>
+                            <p>Ja, ich arbeite sowohl vor Ort in Liège als auch remote für Kunden in ganz Europa.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3>Welche Projekte nehmen Sie an?</h3>
+                            <p>Von einfachen Websites bis hin zu komplexen Webanwendungen und technischen Beratungsprojekten.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="cta-section">
+                    <div class="cta-section__content">
+                        <h2>Bereit für Ihr Projekt?</h2>
+                        <p>Lassen Sie uns besprechen, wie ich Ihnen bei der Verwirklichung Ihrer Ideen helfen kann.</p>
+                        <div class="cta-actions">
+                            <a href="dienstleistungen.html" class="btn btn--outline">Meine Services</a>
+                            <a href="lebenslauf.html" class="btn btn--ghost">Meinen Lebenslauf ansehen</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">Benjamin Reuland</h3>
+                    <p class="footer__description">
+                        Student für Elektronik und eingebettete Systeme, autodidaktischer Webentwickler und engagierter Bürger.
+                    </p>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Navigation</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Start</a></li>
+                        <li><a href="ueber-mich.html">Über mich</a></li>
+                        <li><a href="studium.html">Studium</a></li>
+                        <li><a href="projekte/index.html">Projekte</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Services</h4>
+                    <ul class="footer__links">
+                        <li><a href="dienstleistungen.html">Webentwicklung</a></li>
+                        <li><a href="dienstleistungen.html#beratung">Technische Beratung</a></li>
+                        <li><a href="dienstleistungen.html#wartung">Website-Wartung</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Rechtliches</h4>
+                    <ul class="footer__links">
+                        <li><a href="../privacy.html">Datenschutz</a></li>
+                        <li><a href="../mentions-legales.html">Impressum</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2025 Benjamin Reuland. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/ga4-events.js"></script>
+</body>
+</html>
