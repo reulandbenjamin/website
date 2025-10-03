@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Measurement Station — Benjamin Reuland</title>
+    <meta name="description" content="Automated climate data collection with Python and Enviro+">
+
+    <link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/projets/station-mesure.html">
+    <link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/projects/measurement-station.html">
+    <link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/projecten/meetstation.html">
+    <link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/projekte/messstation.html">
+    <link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/projekt/matstation.html">
+    <link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/projets/station-mesure.html">
+
+    <link rel="canonical" href="https://benjamin-reuland.be/en/projects/measurement-station.html">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <meta property="og:title" content="Environmental Measurement Station — Benjamin Reuland">
+    <meta property="og:description" content="Automated climate data collection with Python and Enviro+">
+    <meta property="og:image" content="https://benjamin-reuland.be/og-default.svg">
+    <meta property="og:url" content="https://benjamin-reuland.be/en/projects/measurement-station.html">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <main class="container project-detail">
+        <nav class="breadcrumb">
+            <a href="/en/">Home</a> → <a href="/en/projects/">Projects</a> → Measurement Station
+        </nav>
+
+        <article>
+            <header class="project-header">
+                <span class="project-tag">Engineering</span>
+                <h1>Environmental Measurement Station</h1>
+                <p class="project-subtitle">Automated climate data collection for scientific analysis</p>
+            </header>
+
+            <section class="project-section">
+                <h2>Context</h2>
+                <p>As part of my electronics studies at HEPL, I developed an autonomous measurement station capable of collecting environmental data (temperature, humidity, pressure, air quality) for research applications.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Problem</h2>
+                <p>Commercial weather stations are expensive and inflexible. The goal was to create an open-source, modular, and economical solution for continuous measurements.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Solution</h2>
+                <p>Using a Raspberry Pi Zero W coupled with an Enviro+ HAT (Pimoroni) integrating 7 sensors: BME280, LTR-559, MICS6814, PMS5003.</p>
+                <p><strong>Tech stack:</strong> Python 3, enviroplus library, CSV storage, Matplotlib visualizations.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Impact</h2>
+                <ul>
+                    <li>Data collected every 10 minutes for 3 months</li>
+                    <li>Total cost: ~€60 (vs €300+ for commercial solutions)</li>
+                    <li>Project reused by 2 fellow students</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>Technologies</h2>
+                <div class="tech-stack">
+                    <span class="badge">Python 3</span>
+                    <span class="badge">Raspberry Pi</span>
+                    <span class="badge">Enviro+ HAT</span>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <h2>Interested in this type of project?</h2>
+                <a href="/en/contact.html" class="btn btn-primary">Let's discuss</a>
+            </section>
+        </article>
+    </main>
+    <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/ga4-events.js" defer></script>
+</body>
+</html>
