@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Home",
+    "description": "Engineering & Web",
+    "content": "Benjamin Reuland student HEPL elektronica embedded projecten web",
+    "permalink": "https://benjamin-reuland.be/nl/",
+    "lang": "nl"
+  },
+  {
+    "title": "Over mij",
+    "description": "Ingenieursstudent",
+    "content": "HEPL Luik elektronica Python Arduino web Repair Café JEF",
+    "permalink": "https://benjamin-reuland.be/nl/over-mij.html",
+    "lang": "nl"
+  },
+  {
+    "title": "Studies",
+    "description": "Opleiding vaardigheden",
+    "content": "Bachelor HEPL elektronica embedded Python C++ Arduino",
+    "permalink": "https://benjamin-reuland.be/nl/studies.html",
+    "lang": "nl"
+  },
+  {
+    "title": "Meetstation",
+    "description": "Klimaat automatisering",
+    "content": "Raspberry Pi Enviro+ Python sensoren temperatuur vochtigheid",
+    "permalink": "https://benjamin-reuland.be/nl/projecten/meetstation.html",
+    "lang": "nl"
+  },
+  {
+    "title": "Spoorwegplatform",
+    "description": "EU treinen analyse",
+    "content": "Python Pandas NMBS SNCF DB stiptheid data mobiliteit",
+    "permalink": "https://benjamin-reuland.be/nl/projecten/spoorwegplatform.html",
+    "lang": "nl"
+  },
+  {
+    "title": "Automatische Irrigatie",
+    "description": "Arduino irrigatie",
+    "content": "Arduino vochtigheidssensor lithium batterij autonomie",
+    "permalink": "https://benjamin-reuland.be/nl/projecten/automatische-irrigatie.html",
+    "lang": "nl"
+  },
+  {
+    "title": "Engagementen",
+    "description": "Ashoka JEF HEPL",
+    "content": "Ashoka Young Changemaker Repair Café JEF Luik Europa student",
+    "permalink": "https://benjamin-reuland.be/nl/mijn-engagementen.html",
+    "lang": "nl"
+  },
+  {
+    "title": "Diensten",
+    "description": "Websites voor verenigingen",
+    "content": "website visitekaartje pro maat 650 1400 2600 euro",
+    "permalink": "https://benjamin-reuland.be/nl/diensten.html",
+    "lang": "nl"
+  }
+]
