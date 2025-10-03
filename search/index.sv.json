@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Hem",
+    "description": "Ingenjörskonst & Webb",
+    "content": "Benjamin Reuland student HEPL elektronik embedded projekt webb",
+    "permalink": "https://benjamin-reuland.be/sv/",
+    "lang": "sv"
+  },
+  {
+    "title": "Om mig",
+    "description": "Ingenjörsstudent",
+    "content": "HEPL Liège elektronik Python Arduino webb Repair Café JEF",
+    "permalink": "https://benjamin-reuland.be/sv/om-mig.html",
+    "lang": "sv"
+  },
+  {
+    "title": "Studier",
+    "description": "Utbildning kompetenser",
+    "content": "Bachelor HEPL elektronik embedded Python C++ Arduino",
+    "permalink": "https://benjamin-reuland.be/sv/studier.html",
+    "lang": "sv"
+  },
+  {
+    "title": "Mätstation",
+    "description": "Klimat automatisering",
+    "content": "Raspberry Pi Enviro+ Python sensorer temperatur fuktighet",
+    "permalink": "https://benjamin-reuland.be/sv/projekt/matstation.html",
+    "lang": "sv"
+  },
+  {
+    "title": "Järnvägsplattform",
+    "description": "EU tåg analys",
+    "content": "Python Pandas SNCF DB punktlighet data mobilitet",
+    "permalink": "https://benjamin-reuland.be/sv/projekt/jarnvagsplattform.html",
+    "lang": "sv"
+  },
+  {
+    "title": "Automatisk Bevattning",
+    "description": "Arduino bevattning",
+    "content": "Arduino fuktighetssensor litium batteri autonomi",
+    "permalink": "https://benjamin-reuland.be/sv/projekt/automatisk-bevattning.html",
+    "lang": "sv"
+  },
+  {
+    "title": "Engagemang",
+    "description": "Ashoka JEF HEPL",
+    "content": "Ashoka Young Changemaker Repair Café JEF Liège Europa student",
+    "permalink": "https://benjamin-reuland.be/sv/mina-engagemang.html",
+    "lang": "sv"
+  },
+  {
+    "title": "Tjänster",
+    "description": "Webbplatser för föreningar",
+    "content": "webbplats visitkort pro skräddarsydd 650 1400 2600 euro",
+    "permalink": "https://benjamin-reuland.be/sv/tjanster.html",
+    "lang": "sv"
+  }
+]
