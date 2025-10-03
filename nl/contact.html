@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Benjamin Reuland</title>
+    <meta name="description" content="Contacteer mij">
+    <link rel="alternate" hreflang="fr" href="https://benjamin-reuland.be/fr/contact.html">
+    <link rel="alternate" hreflang="en" href="https://benjamin-reuland.be/en/contact.html">
+    <link rel="alternate" hreflang="nl" href="https://benjamin-reuland.be/nl/contact.html">
+    <link rel="alternate" hreflang="de" href="https://benjamin-reuland.be/de/kontakt.html">
+    <link rel="alternate" hreflang="sv" href="https://benjamin-reuland.be/sv/kontakt.html">
+    <link rel="alternate" hreflang="x-default" href="https://benjamin-reuland.be/fr/contact.html">
+    <link rel="canonical" href="https://benjamin-reuland.be/nl/contact.html">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta property="og:title" content="Contact">
+    <meta property="og:image" content="https://benjamin-reuland.be/og-default.svg">
+</head>
+<body>
+    <main class="container">
+        <h1>Contact</h1>
+        <p>Laten we praten over uw project</p>
+        <form action="/api/form.php" method="POST">
+            <input type="text" name="name" placeholder="Naam" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <textarea name="message" placeholder="Bericht (min. 100 tekens)" required minlength="100"></textarea>
+            <label><input type="checkbox" name="consent" required> Ik ga akkoord met gegevensverwerking</label>
+            <button type="submit" class="btn">Verzenden</button>
+        </form>
+        <p><strong>E-mail:</strong> contact@benjamin-reuland.be</p>
+    </main>
+    <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
